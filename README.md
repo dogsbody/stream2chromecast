@@ -124,6 +124,10 @@ These options are applied to the transcoder output.
  - To specify an output video bitrate of 1000k and an audio bitrate of 128k
 
         stream2chromecast.py -transcodeopts '-b:v 1000k -b:a 128k' -transcode <file>
+
+ - To specify a stereo (2.1) output froma 5.1 input (required for some old Chromecasts)
+
+	stream2chromecast.py -transcodeopts '-af "pan=stereo|FL < 1.0*FL + 0.707*FC + 0.707*BL|FR < 1.0*FR + 0.707*FC + 0.707*BR"' -transcode <file>
         
 It is also possible to pass in parameters to the transcoder to be applied to the transcoder input using the -transcodeinputopts parameter, again with the options surrounded by quotes. This can be useful for specifying a "seek" position.
 
